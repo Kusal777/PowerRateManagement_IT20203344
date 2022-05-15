@@ -1,3 +1,11 @@
+$(document).ready(function(){
+if ($("#alertSuccess").text().trim() == "")
+{
+$("#alertSuccess").hide();
+}
+$("#alertError").hide();
+});
+
 $(document).on("click", "#btnSave", function(event)
 { 
 // Clear alerts---------------------
@@ -29,7 +37,8 @@ var type = ($("#hidPowerIDSave").val() == "") ? "POST" : "PUT";
 });
 
 function onPowerSaveComplete(response, status)
-{ 
+{
+	location.reload(); 
 if (status == "success") 
  { 
  var resultSet = JSON.parse(response); 
@@ -87,6 +96,7 @@ $(document).on("click", ".btnRemove", function(event)
 		
 function onPowerDeleteComplete(response, status)
 { 
+	location.reload();
 if (status == "success") 
  { 
  var resultSet = JSON.parse(response); 
